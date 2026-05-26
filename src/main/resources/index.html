@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Scolastica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Gestione Biblioteca Scolastica</h1>
+            <p>Sistema di gestione libri e prestiti</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="utenti">👥 Utenti</button>
+            <button class="tab-button" data-tab="libri">📖 Libri</button>
+            <button class="tab-button" data-tab="prestiti">📋 Prestiti</button>
+        </nav>
+
+        <!-- TAB UTENTI -->
+        <section id="utenti" class="tab-content active">
+            <div class="content-wrapper">
+                <h2>Gestione Utenti</h2>
+                
+                <div class="form-container">
+                    <h3>Registra Utente</h3>
+                    
+                    <div class="form-group">
+                        <label for="userType">Tipo di Utente:</label>
+                        <select id="userType" onchange="updateUserForm()">
+                            <option value="STUDENTE">Studente</option>
+                            <option value="DOCENTE">Docente</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userName">Nome:</label>
+                        <input type="text" id="userName" placeholder="Es. Marco">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userSurname">Cognome:</label>
+                        <input type="text" id="userSurname" placeholder="Es. Rossi">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail">Email:</label>
+                        <input type="email" id="userEmail" placeholder="Es. marco.rossi@email.com">
+                    </div>
+
+                    <div class="form-group" id="classeGroup">
+                        <label for="userClasse">Classe:</label>
+                        <input type="text" id="userClasse" placeholder="Es. 5A">
+                    </div>
+
+                    <div class="form-group" id="materiaGroup" style="display:none;">
+                        <label for="userMateria">Materia:</label>
+                        <input type="text" id="userMateria" placeholder="Es. Matematica">
+                    </div>
+
+                    <button class="btn-primary" onclick="registraUtente()">Registra Utente</button>
+                </div>
+
+                <div class="list-container">
+                    <h3>Elenco Utenti</h3>
+                    <div id="utentiList" class="users-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB LIBRI -->
+        <section id="libri" class="tab-content">
+            <div class="content-wrapper">
+                <h2>Gestione Libri</h2>
+                
+                <div class="form-container">
+                    <h3>Aggiungi Libro</h3>
+                    
+                    <div class="form-group">
+                        <label for="bookTitle">Titolo:</label>
+                        <input type="text" id="bookTitle" placeholder="Es. Il Signore degli Anelli">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookAuthor">Autore:</label>
+                        <input type="text" id="bookAuthor" placeholder="Es. J.R.R. Tolkien">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookYear">Anno di Pubblicazione:</label>
+                        <input type="number" id="bookYear" placeholder="Es. 2023" min="1000">
+                    </div>
+
+                    <button class="btn-primary" onclick="registraLibro()">Aggiungi Libro</button>
+                </div>
+
+                <div class="list-container">
+                    <h3>Catalogo Libri</h3>
+                    <div id="libriList" class="books-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB PRESTITI -->
+        <section id="prestiti" class="tab-content">
+            <div class="content-wrapper">
+                <h2>Gestione Prestiti</h2>
+                
+                <div class="form-container">
+                    <h3>Crea Nuovo Prestito</h3>
+                    
+                    <div class="form-group">
+                        <label for="prestito-idUtente">ID Utente:</label>
+                        <input type="number" id="prestito-idUtente" placeholder="Es. 1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prestito-idLibro">ID Libro:</label>
+                        <input type="number" id="prestito-idLibro" placeholder="Es. 1">
+                    </div>
+
+                    <button class="btn-primary" onclick="creaPrestito()">Crea Prestito</button>
+                </div>
+
+                <div class="list-container">
+                    <h3>Prestiti Attivi</h3>
+                    <div id="prestitiList" class="loans-list"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="message" class="message hidden"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

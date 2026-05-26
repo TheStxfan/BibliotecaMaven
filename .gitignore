@@ -1,0 +1,13 @@
+# Build output
+target/
+*.jar
+*.war
+*.zip
+
+# IDE and configuration files
+.classpath
+.project
+.settings
+.vscode/
+
+.env

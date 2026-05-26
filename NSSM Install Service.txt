@@ -1,0 +1,1 @@
+nssm.exe install "Biblioteca Service" "C:\Program Files\Java\jdk-17\bin\java.exe" "-jar C:\Service\BibliotecaMaven-0.0.1-SNAPSHOT.jar" 
